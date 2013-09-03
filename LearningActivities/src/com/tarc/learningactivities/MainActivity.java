@@ -7,7 +7,6 @@ import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.NotificationCompat;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -28,11 +27,6 @@ public class MainActivity extends Activity {
 		
 		final int duration = Toast.LENGTH_SHORT;
 
-		final NotificationCompat.Builder mBuilder =
-		        new NotificationCompat.Builder(this)
-		        .setSmallIcon(R.drawable.appicon)
-		        .setContentTitle("My notification")
-		        .setContentText("Hello World!");
 		// Creates an explicit intent for an Activity in your app
 		Intent resultIntent = new Intent(this, ListViewMultipleSelectionActivity.class);
 
@@ -50,7 +44,6 @@ public class MainActivity extends Activity {
 		            0,
 		            PendingIntent.FLAG_UPDATE_CURRENT
 		        );
-		mBuilder.setContentIntent(resultPendingIntent);
 		final NotificationManager mNotificationManager =
 		    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 		// mId allows you to update the notification later on.
@@ -63,14 +56,9 @@ public class MainActivity extends Activity {
 				// TODO Auto-generated method stub
 				String pass = et.getText().toString();
 				CharSequence text = pass;
-				Toast toast = Toast.makeText(context, text, duration);
-				toast.show();
+				//Toast toast = Toast.makeText(context, text, duration);
+				//toast.show();
 				//tv.setText(pass);
-				mBuilder.setContentTitle("Teste de notificação");
-				mBuilder.setContentText(pass);
-				mBuilder.setAutoCancel(true);
-				mBuilder.setWhen(System.currentTimeMillis());
-				mNotificationManager.notify(1, mBuilder.build());
 			}
 		});
 	}
